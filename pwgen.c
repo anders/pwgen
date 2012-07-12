@@ -15,13 +15,16 @@
 
 #include "SecurityFoundation/SFPWA.h"
 
+#define MIN_LENGTH 8
+#define MAX_LENGTH 31
+
 static void usage(const char *argv0) {
 	printf("Usage: %s OPTIONS...\n\n", argv0);
 	printf("Option  Long option  Meaning\n");
 	printf("-c      --count      The number of passwords to generate.\n");
 	printf("-a      --algorithm  One of {memorable, random, letters, alphanumeric, numbers}.\n");
 	printf("                     The default algorithm is `memorable'.\n");
-	printf("-l      --length     The length of the generated passwords.\n");
+	printf("-l      --length     The desired length of the generated passwords.\n");
 	printf("-h      --help       Prints this message.\n");
 	exit(1);
 }
@@ -80,13 +83,19 @@ int main (int argc, char *argv[]) {
 	}
 
 	if (count < 1) {
-		fprintf(stderr, "Error: invalid count `%d' (should be at least 1).\n\n", count);
+		fprintf(stderr, "Error: invalid count `%d' (generate at least one password).\n\n", count);
 		usage(argv[0]);
 		return 1;
 	}
 	
-	if (length < 5) {
-		fprintf(stderr, "Error: invalid length `%d' (should be at least 5).\n\n", length);
+	if (length < MIN_LENGTH) {
+		fprintf(stderr, "Error: length `%d' is too short (should be at least %d).\n\n", length, MIN_LENGTH);
+		usage(argv[0]);
+		return 1;
+	}
+
+	if (length > MAX_LENGTH) {
+		fprintf(stderr, "Error: length `%d' is too long, max is %d.\n", length, MAX_LENGTH);
 		usage(argv[0]);
 		return 1;
 	}
