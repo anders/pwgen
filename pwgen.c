@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <getopt.h>
-#import <assert.h>
+#include <assert.h>
 
 #include <CoreFoundation/CoreFoundation.h>
 
