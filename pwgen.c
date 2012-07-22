@@ -35,6 +35,10 @@ int main (int argc, char *argv[]) {
 	int count = -1, length = -1;
 	int count_set = 0, length_set = 0;
 	SFPWAAlgorithm algorithm = SFPWAAlgorithmMemorable;
+	SFPWAContextRef ctx = NULL;
+	CFDictionaryRef policy = NULL;
+	CFMutableArrayRef suggestions = NULL;
+	CFStringRef s = NULL;
 
 	const struct option longopts[] = {
 		{ "algorithm", optional_argument, NULL, 'a' },
@@ -60,6 +64,7 @@ int main (int argc, char *argv[]) {
 				else {
 					fprintf(stderr, "Error: unknown algorithm `%s'.\n\n", optarg);
 					usage(argv[0]);
+					return 1;
 				}
 				break;
 			case 'c':
@@ -100,17 +105,17 @@ int main (int argc, char *argv[]) {
 		return 1;
 	}
 
-	SFPWAContext *ctx = SFPWAContextCreateWithDefaults();
+	ctx = SFPWAContextCreateWithDefaults();
 	assert(ctx != NULL);
 	
-	CFDictionaryRef policy = SFPWAPolicyCopyDefault();
+	policy = SFPWAPolicyCopyDefault();
 	assert(policy != NULL);
 	
-	CFMutableArrayRef suggestions = SFPWAPasswordSuggest(ctx, policy, length, 0, count, algorithm);
+	suggestions = SFPWAPasswordSuggest(ctx, policy, length, 0, count, algorithm);
 	assert(suggestions != NULL);
 	
 	for (i = 0; i < CFArrayGetCount(suggestions); i++) {
-		CFStringRef s = CFArrayGetValueAtIndex(suggestions, i);
+		s = CFArrayGetValueAtIndex(suggestions, i);
 		assert(s != NULL);
 		
 		n = CFStringGetMaximumSizeForEncoding(CFStringGetLength(s), CFStringGetSystemEncoding()) + 1;
@@ -123,10 +128,8 @@ int main (int argc, char *argv[]) {
 		free(buf);
 	}
 
-	CFRelease(policy);
-	CFRelease(suggestions);
-	
 	SFPWAContextRelease(ctx);
-	
+	CFRelease(policy);
+
 	return 0;
 }

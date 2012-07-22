@@ -1,7 +1,7 @@
 // Link with SecurityFoundation.framework
 #include <CoreFoundation/CoreFoundation.h>
 
-typedef struct SFPWAContext SFPWAContext;
+typedef void *SFPWAContextRef;
 
 typedef enum {
     SFPWAAlgorithmMemorable = 0, // Memorable
@@ -15,8 +15,8 @@ typedef enum {
     // SFPWAAlgorithmManual = 6
 } SFPWAAlgorithm;
 
-SFPWAContext *SFPWAContextCreate(void);
-SFPWAContext *SFPWAContextCreateWithDefaults(void);
+SFPWAContextRef SFPWAContextCreate(void);
+SFPWAContextRef SFPWAContextCreateWithDefaults(void);
 CFDictionaryRef SFPWAPolicyCopyDefault(void);
-CFMutableArrayRef SFPWAPasswordSuggest(SFPWAContext *ctx, CFDictionaryRef policy, int length, int unknown, int count, SFPWAAlgorithm algorithm);
-void *SFPWAContextRelease(SFPWAContext *ctx);
+CFMutableArrayRef SFPWAPasswordSuggest(SFPWAContextRef ctx, CFDictionaryRef policy, int length, int unknown, int count, SFPWAAlgorithm algorithm);
+void SFPWAContextRelease(SFPWAContextRef ctx);
