@@ -1,6 +1,0 @@
-This header lets you use Apple's private password suggestion API which is used 
-in Keychain Access and other applications. Include SecurityFoundation/SFPWA.h 
-in your project and link with SecurityFoundation.framework. pwgen is an example 
-application to generate passwords.
-
-Everything in this repository is released into the public domain.
