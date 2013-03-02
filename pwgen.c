@@ -123,7 +123,7 @@ int main (int argc, char *argv[]) {
         CFStringRef s = CFArrayGetValueAtIndex(suggestions, i);
         assert(s != NULL);
         
-        int n = CFStringGetMaximumSizeForEncoding(CFStringGetLength(s), kCFStringEncodingUTF8) + 1;
+        long n = CFStringGetMaximumSizeForEncoding(CFStringGetLength(s), kCFStringEncodingUTF8) + 1;
         char *buf = malloc(n);
         assert(buf != NULL);
         
