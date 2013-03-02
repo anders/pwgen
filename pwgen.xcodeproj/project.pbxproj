@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A07D7AF16E1B83D0042A1BE /* pwgen.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A07D7AD16E1B83D0042A1BE /* pwgen.c */; };
-		9A850B1416E1B750001E2417 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A850B1316E1B750001E2417 /* CoreFoundation.framework */; };
+		9A07D7B416E1BD380042A1BE /* pwgen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A07D7B316E1BD380042A1BE /* pwgen.m */; };
+		9A07D7B616E1BD870042A1BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A07D7B516E1BD870042A1BE /* Foundation.framework */; };
 		9A850B2216E1B78F001E2417 /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A850B2116E1B78F001E2417 /* SecurityFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,10 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9A07D7AD16E1B83D0042A1BE /* pwgen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pwgen.c; sourceTree = SOURCE_ROOT; };
 		9A07D7B116E1B85C0042A1BE /* SFPasswordAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPasswordAssistant.h; sourceTree = "<group>"; };
+		9A07D7B316E1BD380042A1BE /* pwgen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pwgen.m; sourceTree = SOURCE_ROOT; };
+		9A07D7B516E1BD870042A1BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A850B1016E1B750001E2417 /* pwgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pwgen; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A850B1316E1B750001E2417 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		9A850B2116E1B78F001E2417 /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = System/Library/Frameworks/SecurityFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -37,8 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A07D7B616E1BD870042A1BE /* Foundation.framework in Frameworks */,
 				9A850B2216E1B78F001E2417 /* SecurityFoundation.framework in Frameworks */,
-				9A850B1416E1B750001E2417 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,8 +73,8 @@
 		9A850B1216E1B750001E2417 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A07D7B516E1BD870042A1BE /* Foundation.framework */,
 				9A850B2116E1B78F001E2417 /* SecurityFoundation.framework */,
-				9A850B1316E1B750001E2417 /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				9A07D7B016E1B85C0042A1BE /* SecurityFoundation */,
-				9A07D7AD16E1B83D0042A1BE /* pwgen.c */,
+				9A07D7B316E1BD380042A1BE /* pwgen.m */,
 			);
 			path = pwgen;
 			sourceTree = "<group>";
@@ -139,7 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A07D7AF16E1B83D0042A1BE /* pwgen.c in Sources */,
+				9A07D7B416E1BD380042A1BE /* pwgen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

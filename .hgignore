@@ -6,4 +6,5 @@ pwgen
 .DS_Store
 *.pbxuser
 xcuserdata
+build
 
