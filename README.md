@@ -1,9 +1,10 @@
-Reverse-engineered header for Apple's password suggestion API.
+# SecurityFoundation
+Reverse-engineered header for Apple's password assistant API.
 
-To use it, simply include `SecurityFoundation/SFPasswordAssistant.h` in your
-project and and link with `SecurityFoundation.framework`. There is an example
-application called `pwgen` which can be used to generate passwords in a
-terminal.
+Simply include `SecurityFoundation/SFPasswordAssistant.h` in your
+project and link to `SecurityFoundation.framework`.
+
+`pwgen` is an example CLI application which generates passwords:
 
     usage: ./pwgen [options]
 
@@ -13,5 +14,3 @@ terminal.
                          The default algorithm is `memorable'.
       -l, --length       The desired length of the generated passwords.
       -h, --help         Prints this message.
-
-Everything in this repository is released into the public domain.
