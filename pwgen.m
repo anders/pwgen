@@ -37,12 +37,13 @@
 
 static void usage(const char *argv0) {
     printf("usage: %s [options]\n\n", argv0);
-    printf("Option:            Meaning:\n");
-    printf("  -c, --count        The number of passwords to generate.\n");
-    printf("  -a, --algorithm    One of {memorable, random, letters, alphanumeric, numbers}.\n");
-    printf("                     The default algorithm is `memorable'.\n");
-    printf("  -l, --length       The desired length of the generated passwords.\n");
-    printf("  -h, --help         Prints this message.\n");
+    printf("Option:          Meaning:\n");
+    printf("  -c, --count      The number of passwords to generate.\n");
+    printf("  -a, --algorithm  Available algorithms: memorable, random\n");
+    printf("                   letters, alphanumeric, numbers.\n");
+    printf("                   The default is `memorable'.\n");
+    printf("  -l, --length     Desired length of the generated passwords.\n");
+    printf("  -h, --help       Prints this message.\n");
     exit(1);
 }
 
