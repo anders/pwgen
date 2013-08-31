@@ -1,5 +1,4 @@
-CC=clang
-CFLAGS=-arch x86_64 -arch i386 -Wall -Wextra -O2 -g
+CFLAGS=-Wall -Wextra -Os
 TARGET=pwgen
 SRC=pwgen.c
 OBJ=$(SRC:.c=.o)
