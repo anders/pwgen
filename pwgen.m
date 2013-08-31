@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
           algorithm = kSFPWAAlgorithmNumbers;
 
         else {
-          fprintf(stderr, "%s: error: unknown algorithm.\n", argv[0]);
+          fprintf(stderr, "error: unknown algorithm.\n");
           usage(argv[0]);
           return 1;
         }
