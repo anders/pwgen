@@ -1,8 +1,7 @@
 /*
- * Public domain
+ * Released into the public domain.
  *
- * Written by Anders Bergh <anders1@gmail.com>
- * Repository at https://bitbucket.org/anders/securityfoundation/
+ * Written by Anders Bergh <anders1@gmail.com> in 2013.
  */
 
 #ifndef SFPASSWORDASSISTANT_H
