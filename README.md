@@ -14,7 +14,8 @@ project and link to `SecurityFoundation.framework`.
       -c, --count      The number of passwords to generate.
                        The default is `memorable'.
       -l, --length     Desired length of the generated passwords.
-      -L, --language   Generate passwords in a specified language (BUGGY).
+      -L, --language   Generate passwords in a specified language.
                        Languages: en, de, es, fr, it, nl, pt, jp.
-                       The default setting is English.
+                       Note that this feature is broken and will
+                       produce garbage, bug: rdar://14889281
       -h, --help       Prints this message.
