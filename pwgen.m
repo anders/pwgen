@@ -36,14 +36,27 @@
 #define MAX_LENGTH 31
 
 static void usage(const char *argv0) {
+  // to get the available languages
+  NSDictionary *policy = (NSDictionary *)SFPWAPolicyCopyDefault();
+  NSArray *languages =
+      [policy[@"Languages-Evaluate"] componentsSeparatedByString:@","];
+
   printf("usage: %s [options]\n\n", argv0);
   printf("Option:          Meaning:\n");
-  printf("  -c, --count      The number of passwords to generate.\n");
   printf("  -a, --algorithm  Available algorithms: memorable, random\n");
   printf("                   letters, alphanumeric, numbers.\n");
+  printf("  -c, --count      The number of passwords to generate.\n");
   printf("                   The default is `memorable'.\n");
   printf("  -l, --length     Desired length of the generated passwords.\n");
+  printf("  -L, --language   Generate passwords in a specified language "
+         "(BUGGY).\n");
+  printf("                   Languages: %s.\n",
+         [[languages componentsJoinedByString:@", "] UTF8String]);
+  printf("                   The default setting is English.\n");
   printf("  -h, --help       Prints this message.\n");
+
+  [policy release];
+
   exit(1);
 }
 
@@ -52,16 +65,18 @@ int main(int argc, char *argv[]) {
   int count = 1;
   int length = 12;
   SFPWAAlgorithm algorithm = kSFPWAAlgorithmMemorable;
+  NSString *language = @"en";
 
   const struct option longopts[] = {
     { "algorithm", optional_argument, NULL, 'a' },
     { "count", required_argument, NULL, 'c' },
     { "length", required_argument, NULL, 'l' },
+    { "language", required_argument, NULL, 'L' },
     { "help", no_argument, NULL, 'h' }, { NULL, 0, NULL, 0 }
   };
 
   char ch;
-  while ((ch = getopt_long(argc, argv, "c:a:l:h", longopts, NULL)) != -1) {
+  while ((ch = getopt_long(argc, argv, "c:a:l:L:h", longopts, NULL)) != -1) {
     switch (ch) {
       case 'a':
         if (strcmp(optarg, "memorable") == 0)
@@ -94,6 +109,10 @@ int main(int argc, char *argv[]) {
         length = atoi(optarg);
         break;
 
+      case 'L':
+        language = [NSString stringWithUTF8String:optarg];
+        break;
+
       default:
         usage(argv[0]);
         return 1;
@@ -109,11 +128,24 @@ int main(int argc, char *argv[]) {
   else if (length > MAX_LENGTH)
     length = MAX_LENGTH;
 
+  NSDictionary *policy = (NSDictionary *)SFPWAPolicyCopyDefault();
+  assert(policy != NULL);
+
   SFPWAContextRef ctx = SFPWAContextCreateWithDefaults();
   assert(ctx != NULL);
 
-  NSDictionary *policy = (NSDictionary *)SFPWAPolicyCopyDefault();
-  assert(policy != NULL);
+  if (language) {
+    NSArray *languages =
+        [policy[@"Languages-Evaluate"] componentsSeparatedByString:@","];
+    if ([languages containsObject:language]) {
+      SFPWAContextLoadDictionaries(ctx, (CFArrayRef) @[ language ], 1);
+    } else {
+      fprintf(stderr,
+              "warning: requested language `%s' unavailable, try one of: %s.\n",
+              [language UTF8String],
+              [[languages componentsJoinedByString:@", "] UTF8String]);
+    }
+  }
 
   NSMutableArray *suggestions = (NSMutableArray *)SFPWAPasswordSuggest(
       ctx, (CFDictionaryRef) policy, length, 0, count, algorithm);

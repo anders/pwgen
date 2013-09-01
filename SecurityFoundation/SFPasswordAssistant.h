@@ -23,7 +23,7 @@ bool SFPWACStringInDictionary(SFPWAContextRef ctx, const char *string);
 SFPWAContextRef SFPWAContextCreate(void);
 SFPWAContextRef SFPWAContextCreateWithDefaults(void);
 void SFPWAContextLoadDictionaries(SFPWAContextRef ctx, CFArrayRef langs,
-                                  bool unknown);
+                                  int unknown);
 void SFPWAContextRelease(SFPWAContextRef ctx);
 
 /* Example:
