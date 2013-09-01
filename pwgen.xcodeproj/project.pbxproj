@@ -25,8 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9A07D7B116E1B85C0042A1BE /* SFPasswordAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPasswordAssistant.h; sourceTree = "<group>"; };
-		9A07D7B316E1BD380042A1BE /* pwgen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pwgen.m; sourceTree = SOURCE_ROOT; };
+		9A07D7B116E1B85C0042A1BE /* SFPasswordAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SFPasswordAssistant.h; sourceTree = "<group>"; };
+		9A07D7B316E1BD380042A1BE /* pwgen.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = pwgen.m; sourceTree = SOURCE_ROOT; };
 		9A07D7B516E1BD870042A1BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A850B1016E1B750001E2417 /* pwgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pwgen; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A850B2116E1B78F001E2417 /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = System/Library/Frameworks/SecurityFoundation.framework; sourceTree = SDKROOT; };
@@ -60,6 +60,7 @@
 				9A850B1216E1B750001E2417 /* Frameworks */,
 				9A850B1116E1B750001E2417 /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
 		};
 		9A850B1116E1B750001E2417 /* Products */ = {
