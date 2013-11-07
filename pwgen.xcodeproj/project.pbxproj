@@ -25,11 +25,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9A07D7B116E1B85C0042A1BE /* SFPasswordAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SFPasswordAssistant.h; sourceTree = "<group>"; };
 		9A07D7B316E1BD380042A1BE /* pwgen.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = pwgen.m; sourceTree = SOURCE_ROOT; };
 		9A07D7B516E1BD870042A1BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A850B1016E1B750001E2417 /* pwgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pwgen; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A850B2116E1B78F001E2417 /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = System/Library/Frameworks/SecurityFoundation.framework; sourceTree = SDKROOT; };
+		9A92F282182BDCD900CA808B /* SFPasswordAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPasswordAssistant.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,14 +45,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9A07D7B016E1B85C0042A1BE /* SecurityFoundation */ = {
-			isa = PBXGroup;
-			children = (
-				9A07D7B116E1B85C0042A1BE /* SFPasswordAssistant.h */,
-			);
-			path = SecurityFoundation;
-			sourceTree = SOURCE_ROOT;
-		};
 		9A850B0716E1B750001E2417 = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +75,7 @@
 		9A850B1516E1B750001E2417 /* pwgen */ = {
 			isa = PBXGroup;
 			children = (
-				9A07D7B016E1B85C0042A1BE /* SecurityFoundation */,
+				9A92F282182BDCD900CA808B /* SFPasswordAssistant.h */,
 				9A07D7B316E1BD380042A1BE /* pwgen.m */,
 			);
 			path = pwgen;
@@ -115,7 +107,7 @@
 		9A850B0816E1B750001E2417 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Anders Bergh";
 			};
 			buildConfigurationList = 9A850B0B16E1B750001E2417 /* Build configuration list for PBXProject "pwgen" */;
@@ -151,7 +143,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -183,7 +174,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;

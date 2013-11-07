@@ -1,6 +1,5 @@
 /*
  * pwgen.c -- OS X command line password generator
- *
  * Copyright (c) 2013 Anders Bergh <anders1@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied
@@ -30,7 +29,7 @@
 #include <assert.h>
 
 #import <Foundation/Foundation.h>
-#import "SecurityFoundation/SFPasswordAssistant.h"
+#import "SFPasswordAssistant.h"
 
 #define MIN_LENGTH 8
 #define MAX_LENGTH 31
@@ -41,19 +40,22 @@ static void usage(const char *argv0) {
   NSArray *languages =
       [policy[@"Languages-Evaluate"] componentsSeparatedByString:@","];
 
+  printf("pwgen: OS X password generator\n");
+  printf("by Anders Bergh <anders1@gmail.com>\n\n");
+
   printf("usage: %s [options]\n\n", argv0);
-  printf("Option:          Meaning:\n");
-  printf("  -a, --algorithm  Available algorithms: memorable, random\n");
-  printf("                   letters, alphanumeric, numbers.\n");
-  printf("  -c, --count      The number of passwords to generate.\n");
-  printf("                   The default is `memorable'.\n");
-  printf("  -l, --length     Desired length of the generated passwords.\n");
-  printf("  -L, --language   Generate passwords in a specified language.\n");
-  printf("                   Languages: %s.\n",
+  printf("Option:            Meaning:\n");
+  printf(" -a, --algorithm    Available algorithms: memorable, random\n");
+  printf("                    letters, alphanumeric, numbers.\n");
+  printf(" -c, --count        The number of passwords to generate.\n");
+  printf("                    The default is `memorable'.\n");
+  printf(" -l, --length       Desired length of the generated passwords.\n");
+  printf(" -L, --language     Generate passwords in a specified language.\n");
+  printf("                    Languages: %s.\n",
          [[languages componentsJoinedByString:@", "] UTF8String]);
-  printf("                   Note that this feature is broken and will\n");
-  printf("                   produce garbage, bug: rdar://14889281\n");
-  printf("  -h, --help       Prints this message.\n");
+  printf("                    Note that this feature is broken and will\n");
+  printf("                    produce garbage, bug: rdar://14889281\n");
+  printf(" -h, --help         Prints this message.\n");
 
   [policy release];
 
