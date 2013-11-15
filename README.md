@@ -9,8 +9,8 @@
     Option:            Meaning:
      -a, --algorithm    Available algorithms: memorable, random
                         letters, alphanumeric, numbers.
-     -c, --count        The number of passwords to generate.
                         The default is `memorable'.
+     -c, --count        The number of passwords to generate.
      -l, --length       Desired length of the generated passwords.
      -L, --language     Generate passwords in a specified language.
                         Languages: en, de, es, fr, it, nl, pt, jp.
