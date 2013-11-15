@@ -47,8 +47,8 @@ static void usage(const char *argv0) {
   printf("Option:            Meaning:\n");
   printf(" -a, --algorithm    Available algorithms: memorable, random\n");
   printf("                    letters, alphanumeric, numbers.\n");
-  printf(" -c, --count        The number of passwords to generate.\n");
   printf("                    The default is `memorable'.\n");
+  printf(" -c, --count        The number of passwords to generate.\n");
   printf(" -l, --length       Desired length of the generated passwords.\n");
   printf(" -L, --language     Generate passwords in a specified language.\n");
   printf("                    Languages: %s.\n",
