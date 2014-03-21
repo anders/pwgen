@@ -1,4 +1,5 @@
-CFLAGS=-Wall -Wextra -Os
+CC=clang
+CFLAGS=-Wall -Wextra -Os -fobjc-arc
 TARGET=pwgen
 SRC=pwgen.m
 OBJ=$(SRC:.m=.o)

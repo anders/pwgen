@@ -1,6 +1,6 @@
 /*
  * pwgen.c -- OS X command line password generator
- * Copyright (c) 2013 Anders Bergh <anders1@gmail.com>
+ * Copyright (c) 2014 Anders Bergh <anders1@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -36,7 +36,8 @@
 
 static void usage(const char *argv0) {
   // to get the available languages
-  NSDictionary *policy = (NSDictionary *)SFPWAPolicyCopyDefault();
+  NSDictionary *policy =
+      (NSDictionary *)CFBridgingRelease(SFPWAPolicyCopyDefault());
   NSArray *languages =
       [policy[@"Languages-Evaluate"] componentsSeparatedByString:@","];
 
@@ -57,8 +58,6 @@ static void usage(const char *argv0) {
   printf("                    produce garbage, bug: rdar://14889281\n");
   printf(" -h, --help         Prints this message.\n");
 
-  [policy release];
-
   exit(1);
 }
 
@@ -74,7 +73,8 @@ int main(int argc, char *argv[]) {
     { "count", required_argument, NULL, 'c' },
     { "length", required_argument, NULL, 'l' },
     { "language", required_argument, NULL, 'L' },
-    { "help", no_argument, NULL, 'h' }, { NULL, 0, NULL, 0 }
+    { "help", no_argument, NULL, 'h' },
+    { NULL, 0, NULL, 0 }
   };
 
   char ch;
@@ -130,7 +130,8 @@ int main(int argc, char *argv[]) {
   else if (length > MAX_LENGTH)
     length = MAX_LENGTH;
 
-  NSDictionary *policy = (NSDictionary *)SFPWAPolicyCopyDefault();
+  NSDictionary *policy =
+      (NSDictionary *)CFBridgingRelease(SFPWAPolicyCopyDefault());
   assert(policy != NULL);
 
   SFPWAContextRef ctx = SFPWAContextCreateWithDefaults();
@@ -140,7 +141,7 @@ int main(int argc, char *argv[]) {
     NSArray *languages =
         [policy[@"Languages-Evaluate"] componentsSeparatedByString:@","];
     if ([languages containsObject:language]) {
-      SFPWAContextLoadDictionaries(ctx, (CFArrayRef) @[ language ], 1);
+      SFPWAContextLoadDictionaries(ctx, (__bridge CFArrayRef) @[ language ], 1);
     } else {
       fprintf(stderr,
               "warning: requested language `%s' unavailable, try one of: %s.\n",
@@ -149,15 +150,14 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  NSMutableArray *suggestions = (NSMutableArray *)SFPWAPasswordSuggest(
-      ctx, (CFDictionaryRef) policy, length, 0, count, algorithm);
+  NSMutableArray *suggestions = (__bridge NSMutableArray *)SFPWAPasswordSuggest(
+      ctx, (__bridge CFDictionaryRef)policy, length, 0, count, algorithm);
   assert(suggestions != NULL);
 
   for (NSString *s in suggestions)
     printf("%s\n", [s UTF8String]);
 
   SFPWAContextRelease(ctx);
-  [policy release];
 
   return 0;
 }
