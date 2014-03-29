@@ -1,4 +1,4 @@
-pwgen
+sf-pwgen
 *.o
 
 # Xcode / OS X
