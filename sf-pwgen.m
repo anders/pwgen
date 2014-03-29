@@ -55,7 +55,7 @@ static void usage(const char *argv0) {
   printf("  -c, --count        The number of passwords to generate.\n");
   printf("  -l, --length       Desired length of the generated passwords.\n");
   printf("  -L, --language     Generate passwords in a specified language.\n");
-  printf("                    Languages: %s.\n",
+  printf("                     Languages: %s.\n",
          [[languages componentsJoinedByString:@", "] UTF8String]);
   printf("                     Note that this feature is broken and will\n");
   printf("                     produce garbage, bug: rdar://14889281\n");
