@@ -1,5 +1,5 @@
 /*
- * pwgen.c -- OS X command line password generator
+ * pwgen.m -- OS X command line password generator
  * Copyright (c) 2014 Anders Bergh <anders1@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied
@@ -31,8 +31,11 @@
 #import <Foundation/Foundation.h>
 #import "SFPasswordAssistant.h"
 
-#define MIN_LENGTH 8
-#define MAX_LENGTH 31
+#define PROJECT "sf-pwgen"
+#define VERSION "1.2"
+
+#define PASS_MIN_LENGTH 8
+#define PASS_MAX_LENGTH 31
 
 static void usage(const char *argv0) {
   // to get the available languages
@@ -41,24 +44,23 @@ static void usage(const char *argv0) {
   NSArray *languages =
       [policy[@"Languages-Evaluate"] componentsSeparatedByString:@","];
 
-  printf("pwgen: OS X password generator\n");
+  printf(PROJECT " " VERSION ": OS X password generator\n");
   printf("by Anders Bergh <anders1@gmail.com>\n\n");
 
   printf("usage: %s [options]\n\n", argv0);
   printf("Option:            Meaning:\n");
-  printf(" -a, --algorithm    Available algorithms: memorable, random\n");
-  printf("                    letters, alphanumeric, numbers.\n");
-  printf("                    The default is `memorable'.\n");
-  printf(" -c, --count        The number of passwords to generate.\n");
-  printf(" -l, --length       Desired length of the generated passwords.\n");
-  printf(" -L, --language     Generate passwords in a specified language.\n");
+  printf("  -a, --algorithm    Available algorithms: memorable, random\n");
+  printf("                     letters, alphanumeric, numbers.\n");
+  printf("                     The default is `memorable'.\n");
+  printf("  -c, --count        The number of passwords to generate.\n");
+  printf("  -l, --length       Desired length of the generated passwords.\n");
+  printf("  -L, --language     Generate passwords in a specified language.\n");
   printf("                    Languages: %s.\n",
          [[languages componentsJoinedByString:@", "] UTF8String]);
-  printf("                    Note that this feature is broken and will\n");
-  printf("                    produce garbage, bug: rdar://14889281\n");
-  printf(" -h, --help         Prints this message.\n");
-
-  exit(1);
+  printf("                     Note that this feature is broken and will\n");
+  printf("                     produce garbage, bug: rdar://14889281\n");
+  printf("  -v, --version      Print the version number and exit.\n");
+  printf("  -h, --help         Print this message.\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -73,13 +75,19 @@ int main(int argc, char *argv[]) {
     { "count", required_argument, NULL, 'c' },
     { "length", required_argument, NULL, 'l' },
     { "language", required_argument, NULL, 'L' },
+    { "version", no_argument, NULL, 'v' },
     { "help", no_argument, NULL, 'h' },
     { NULL, 0, NULL, 0 }
   };
 
   char ch;
-  while ((ch = getopt_long(argc, argv, "c:a:l:L:h", longopts, NULL)) != -1) {
+  while ((ch = getopt_long(argc, argv, "c:a:l:L:vh", longopts, NULL)) != -1) {
     switch (ch) {
+      case 'v':
+        printf(PROJECT " " VERSION "\n");
+        exit(EXIT_SUCCESS);
+        break;
+
       case 'a':
         if (strcmp(optarg, "memorable") == 0)
           algorithm = kSFPWAAlgorithmMemorable;
@@ -99,7 +107,7 @@ int main(int argc, char *argv[]) {
         else {
           fprintf(stderr, "error: unknown algorithm.\n");
           usage(argv[0]);
-          return 1;
+          return EXIT_FAILURE;
         }
         break;
 
@@ -117,18 +125,18 @@ int main(int argc, char *argv[]) {
 
       default:
         usage(argv[0]);
-        return 1;
+        return EXIT_FAILURE;
     }
   }
 
   if (count < 1)
     count = 1;
 
-  if (length < MIN_LENGTH)
-    length = MIN_LENGTH;
+  if (length < PASS_MIN_LENGTH)
+    length = PASS_MIN_LENGTH;
 
-  else if (length > MAX_LENGTH)
-    length = MAX_LENGTH;
+  else if (length > PASS_MAX_LENGTH)
+    length = PASS_MAX_LENGTH;
 
   NSDictionary *policy =
       (NSDictionary *)CFBridgingRelease(SFPWAPolicyCopyDefault());
@@ -159,5 +167,5 @@ int main(int argc, char *argv[]) {
 
   SFPWAContextRelease(ctx);
 
-  return 0;
+  return EXIT_SUCCESS;
 }
