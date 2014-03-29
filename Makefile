@@ -1,5 +1,5 @@
-CC=clang
-CFLAGS=-Wall -Wextra -Os -fobjc-arc
+CC?=clang
+CFLAGS?=-Wall -Wextra -Os -fobjc-arc
 TARGET=sf-pwgen
 SRC=sf-pwgen.m
 LIBS=-framework Foundation -framework CoreFoundation -framework SecurityFoundation
