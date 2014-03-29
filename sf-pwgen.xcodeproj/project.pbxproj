@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A07D7B416E1BD380042A1BE /* pwgen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A07D7B316E1BD380042A1BE /* pwgen.m */; };
+		9A07D7B416E1BD380042A1BE /* sf-pwgen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A07D7B316E1BD380042A1BE /* sf-pwgen.m */; };
 		9A07D7B616E1BD870042A1BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A07D7B516E1BD870042A1BE /* Foundation.framework */; };
 		9A850B2216E1B78F001E2417 /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A850B2116E1B78F001E2417 /* SecurityFoundation.framework */; };
 /* End PBXBuildFile section */
@@ -25,9 +25,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9A07D7B316E1BD380042A1BE /* pwgen.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = pwgen.m; sourceTree = SOURCE_ROOT; };
+		9A07D7B316E1BD380042A1BE /* sf-pwgen.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = "sf-pwgen.m"; sourceTree = SOURCE_ROOT; };
 		9A07D7B516E1BD870042A1BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		9A850B1016E1B750001E2417 /* pwgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pwgen; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A850B1016E1B750001E2417 /* sf-pwgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "sf-pwgen"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A850B2116E1B78F001E2417 /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = System/Library/Frameworks/SecurityFoundation.framework; sourceTree = SDKROOT; };
 		9A92F282182BDCD900CA808B /* SFPasswordAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPasswordAssistant.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -48,7 +48,7 @@
 		9A850B0716E1B750001E2417 = {
 			isa = PBXGroup;
 			children = (
-				9A850B1516E1B750001E2417 /* pwgen */,
+				9A850B1516E1B750001E2417 /* sf-pwgen */,
 				9A850B1216E1B750001E2417 /* Frameworks */,
 				9A850B1116E1B750001E2417 /* Products */,
 			);
@@ -58,7 +58,7 @@
 		9A850B1116E1B750001E2417 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A850B1016E1B750001E2417 /* pwgen */,
+				9A850B1016E1B750001E2417 /* sf-pwgen */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,21 +72,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9A850B1516E1B750001E2417 /* pwgen */ = {
+		9A850B1516E1B750001E2417 /* sf-pwgen */ = {
 			isa = PBXGroup;
 			children = (
 				9A92F282182BDCD900CA808B /* SFPasswordAssistant.h */,
-				9A07D7B316E1BD380042A1BE /* pwgen.m */,
+				9A07D7B316E1BD380042A1BE /* sf-pwgen.m */,
 			);
-			path = pwgen;
+			path = "sf-pwgen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9A850B0F16E1B750001E2417 /* pwgen */ = {
+		9A850B0F16E1B750001E2417 /* sf-pwgen */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9A850B1C16E1B750001E2417 /* Build configuration list for PBXNativeTarget "pwgen" */;
+			buildConfigurationList = 9A850B1C16E1B750001E2417 /* Build configuration list for PBXNativeTarget "sf-pwgen" */;
 			buildPhases = (
 				9A850B0C16E1B750001E2417 /* Sources */,
 				9A850B0D16E1B750001E2417 /* Frameworks */,
@@ -96,9 +96,9 @@
 			);
 			dependencies = (
 			);
-			name = pwgen;
-			productName = pwgen;
-			productReference = 9A850B1016E1B750001E2417 /* pwgen */;
+			name = "sf-pwgen";
+			productName = "sf-pwgen";
+			productReference = 9A850B1016E1B750001E2417 /* sf-pwgen */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -110,7 +110,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Anders Bergh";
 			};
-			buildConfigurationList = 9A850B0B16E1B750001E2417 /* Build configuration list for PBXProject "pwgen" */;
+			buildConfigurationList = 9A850B0B16E1B750001E2417 /* Build configuration list for PBXProject "sf-pwgen" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -122,7 +122,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9A850B0F16E1B750001E2417 /* pwgen */,
+				9A850B0F16E1B750001E2417 /* sf-pwgen */,
 			);
 		};
 /* End PBXProject section */
@@ -132,7 +132,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A07D7B416E1BD380042A1BE /* pwgen.m in Sources */,
+				9A07D7B416E1BD380042A1BE /* sf-pwgen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +198,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CURRENT_PROJECT_VERSION = 1.2;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -207,6 +208,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CURRENT_PROJECT_VERSION = 1.2;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -215,7 +217,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9A850B0B16E1B750001E2417 /* Build configuration list for PBXProject "pwgen" */ = {
+		9A850B0B16E1B750001E2417 /* Build configuration list for PBXProject "sf-pwgen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9A850B1A16E1B750001E2417 /* Debug */,
@@ -224,7 +226,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9A850B1C16E1B750001E2417 /* Build configuration list for PBXNativeTarget "pwgen" */ = {
+		9A850B1C16E1B750001E2417 /* Build configuration list for PBXNativeTarget "sf-pwgen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9A850B1D16E1B750001E2417 /* Debug */,

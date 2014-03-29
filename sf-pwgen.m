@@ -1,5 +1,5 @@
 /*
- * pwgen.m -- OS X command line password generator
+ * sf-pwgen.m -- OS X command line password generator
  * Copyright (c) 2014 Anders Bergh <anders1@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied
