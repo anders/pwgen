@@ -1,6 +1,6 @@
 # sf-pwgen
 `sf-pwgen` is a command line tool which generates passwords using the
-SecurityFoundation framework in OS X.
+SecurityFoundation framework in OS X. It runs on Mountain Lion and later.
 
     sf-pwgen 1.2: OS X password generator
     by Anders Bergh <anders1@gmail.com>
@@ -24,7 +24,13 @@ SecurityFoundation framework in OS X.
 ## SFPasswordAssistant.h
 This project also includes SFPasswordAssistant.h, which is a
 reverse-engineered header for Apple's password assistant API
-(used in Keychain Access.app, etc).
+(used in Keychain Access.app, etc). It should work on Snow Leopard
+and above.
 
 To use it simply include `SFPasswordAssistant.h` in your project
 and link to `SecurityFoundation.framework`.
+
+## Contributing
+This project is developed at [Bitbucket](https://bitbucket.org/anders/sf-pwgen/)
+and while there is a GitHub mirror I can't accept pull requests / git changes.
+Patches are fine however.
