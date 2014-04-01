@@ -36,6 +36,8 @@
 
 #define PASS_MIN_LENGTH 8
 #define PASS_MAX_LENGTH 31
+#define PASS_DEFAULT_LENGTH 12
+#define PASS_DEFAULT_COUNT 5
 
 static void usage(const char *argv0) {
   // to get the available languages
@@ -45,28 +47,32 @@ static void usage(const char *argv0) {
       [policy[@"Languages-Evaluate"] componentsSeparatedByString:@","];
 
   printf(PROJECT " " VERSION ": OS X password generator\n");
-  printf("by Anders Bergh <anders1@gmail.com>\n\n");
+  printf("Anders Bergh <anders1@gmail.com>\n");
 
   printf("usage: %s [options]\n\n", argv0);
-  printf("Option:            Meaning:\n");
-  printf("  -a, --algorithm    Available algorithms: memorable, random\n");
-  printf("                     letters, alphanumeric, numbers.\n");
+  printf("Available options are:\n");
+  printf("  -a, --algorithm    Available algorithms: memorable, random, "
+         "letters, alphanumeric, numbers.\n");
   printf("                     The default is `memorable'.\n");
-  printf("  -c, --count        The number of passwords to generate.\n");
-  printf("  -l, --length       Desired length of the generated passwords.\n");
+  printf("  -c, --count        The number of passwords to generate "
+         "(default: %d).\n",
+         PASS_DEFAULT_COUNT);
+  printf("  -l, --length       Desired length of the generated passwords "
+         "(default: %d).\n",
+         PASS_DEFAULT_LENGTH);
   printf("  -L, --language     Generate passwords in a specified language.\n");
   printf("                     Languages: %s.\n",
          [[languages componentsJoinedByString:@", "] UTF8String]);
-  printf("                     Note that this feature is broken and will\n");
-  printf("                     produce garbage, bug: rdar://14889281\n");
+  printf("                     Note that this feature is broken and will "
+         "produce garbage, bug: rdar://14889281\n");
   printf("  -v, --version      Print the version number and exit.\n");
   printf("  -h, --help         Print this message.\n");
 }
 
 int main(int argc, char *argv[]) {
   // Default options
-  int count = 1;
-  int length = 12;
+  int count = PASS_DEFAULT_COUNT;
+  int length = PASS_DEFAULT_LENGTH;
   SFPWAAlgorithm algorithm = kSFPWAAlgorithmMemorable;
   NSString *language = @"en";
 
