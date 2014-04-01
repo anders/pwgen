@@ -164,12 +164,22 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  NSMutableArray *suggestions = (__bridge NSMutableArray *)SFPWAPasswordSuggest(
-      ctx, (__bridge CFDictionaryRef)policy, length, 0, count, algorithm);
-  assert(suggestions != NULL);
+  while (count > 0) {
+    // Only generate 15 passwords at a time.
+    int n = count;
+    if (n > 15)
+      n = 15;
 
-  for (NSString *s in suggestions)
-    printf("%s\n", [s UTF8String]);
+    NSMutableArray *suggestions =
+        (__bridge NSMutableArray *)SFPWAPasswordSuggest(
+            ctx, (__bridge CFDictionaryRef)policy, length, 0, n, algorithm);
+    assert(suggestions != NULL);
+
+    for (NSString *s in suggestions)
+      printf("%s\n", [s UTF8String]);
+
+    count -= [suggestions count];
+  }
 
   SFPWAContextRelease(ctx);
 
