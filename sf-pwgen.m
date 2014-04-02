@@ -1,6 +1,6 @@
 /*
  * sf-pwgen.m -- OS X command line password generator
- * Copyright (c) 2014 Anders Bergh <anders1@gmail.com>
+ * Copyright (c) 2012-2014 Anders Bergh <anders1@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -135,14 +135,15 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  if (count < 1)
+  if (count < 1) {
     count = 1;
+  }
 
-  if (length < PASS_MIN_LENGTH)
+  if (length < PASS_MIN_LENGTH) {
     length = PASS_MIN_LENGTH;
-
-  else if (length > PASS_MAX_LENGTH)
+  } else if (length > PASS_MAX_LENGTH) {
     length = PASS_MAX_LENGTH;
+  }
 
   NSDictionary *policy =
       (NSDictionary *)CFBridgingRelease(SFPWAPolicyCopyDefault());
@@ -167,16 +168,18 @@ int main(int argc, char *argv[]) {
   while (count > 0) {
     // Only generate 15 passwords at a time.
     int n = count;
-    if (n > 15)
+    if (n > 15) {
       n = 15;
+    }
 
     NSMutableArray *suggestions =
         (__bridge NSMutableArray *)SFPWAPasswordSuggest(
             ctx, (__bridge CFDictionaryRef)policy, length, 0, n, algorithm);
     assert(suggestions != NULL);
 
-    for (NSString *s in suggestions)
+    for (NSString *s in suggestions) {
       printf("%s\n", [s UTF8String]);
+    }
 
     count -= [suggestions count];
   }
