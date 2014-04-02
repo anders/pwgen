@@ -95,26 +95,22 @@ int main(int argc, char *argv[]) {
         break;
 
       case 'a':
-        if (strcmp(optarg, "memorable") == 0)
+        if (strcmp(optarg, "memorable") == 0) {
           algorithm = kSFPWAAlgorithmMemorable;
-
-        else if (strcmp(optarg, "random") == 0)
+        } else if (strcmp(optarg, "random") == 0) {
           algorithm = kSFPWAAlgorithmRandom;
-
-        else if (strcmp(optarg, "letters") == 0)
+        } else if (strcmp(optarg, "letters") == 0) {
           algorithm = kSFPWAAlgorithmLetters;
-
-        else if (strcmp(optarg, "alphanumeric") == 0)
+        } else if (strcmp(optarg, "alphanumeric") == 0) {
           algorithm = kSFPWAAlgorithmAlphanumeric;
-
-        else if (strcmp(optarg, "numbers") == 0)
+        } else if (strcmp(optarg, "numbers") == 0) {
           algorithm = kSFPWAAlgorithmNumbers;
-
-        else {
+        } else {
           fprintf(stderr, "error: unknown algorithm.\n");
           usage(argv[0]);
           return EXIT_FAILURE;
         }
+
         break;
 
       case 'c':
