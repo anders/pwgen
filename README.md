@@ -3,20 +3,18 @@
 SecurityFoundation framework in OS X. It runs on Mountain Lion and later.
 
     sf-pwgen 1.2: OS X password generator
-    by Anders Bergh <anders1@gmail.com>
+    Anders Bergh <anders1@gmail.com>
 
     usage: ./sf-pwgen [options]
 
-    Option:            Meaning:
-      -a, --algorithm    Available algorithms: memorable, random
-                         letters, alphanumeric, numbers.
+    Available options are:
+      -a, --algorithm    Available algorithms: memorable, random, letters, alphanumeric, numbers.
                          The default is `memorable'.
-      -c, --count        The number of passwords to generate.
-      -l, --length       Desired length of the generated passwords.
+      -c, --count        The number of passwords to generate (default: 5).
+      -l, --length       Desired length of the generated passwords (default: 12).
       -L, --language     Generate passwords in a specified language.
-                        Languages: en, de, es, fr, it, nl, pt, jp.
-                         Note that this feature is broken and will
-                         produce garbage, bug: rdar://14889281
+                         Languages: en, de, es, fr, it, nl, pt, jp.
+                         Note that this feature is broken and will produce garbage, bug: rdar://14889281
       -v, --version      Print the version number and exit.
       -h, --help         Print this message.
 

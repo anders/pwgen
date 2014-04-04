@@ -47,7 +47,7 @@ static void usage(const char *argv0) {
       [policy[@"Languages-Evaluate"] componentsSeparatedByString:@","];
 
   printf(PROJECT " " VERSION ": OS X password generator\n");
-  printf("Anders Bergh <anders1@gmail.com>\n");
+  printf("Anders Bergh <anders1@gmail.com>\n\n");
 
   printf("usage: %s [options]\n\n", argv0);
   printf("Available options are:\n");
