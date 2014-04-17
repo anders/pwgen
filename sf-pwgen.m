@@ -39,6 +39,9 @@
 #define PASS_DEFAULT_LENGTH 12
 #define PASS_DEFAULT_COUNT 5
 
+// Max number of passwords generated at a time.
+#define PASS_REQUEST_COUNT 15
+
 static void usage(const char *argv0) {
   // to get the available languages
   NSDictionary *policy =
@@ -162,10 +165,9 @@ int main(int argc, char *argv[]) {
   }
 
   while (count > 0) {
-    // Only generate 15 passwords at a time.
     int n = count;
-    if (n > 15) {
-      n = 15;
+    if (n > PASS_REQUEST_COUNT) {
+      n = PASS_REQUEST_COUNT;
     }
 
     NSMutableArray *suggestions =
