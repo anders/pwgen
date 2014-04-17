@@ -32,7 +32,7 @@
 #import "SFPasswordAssistant.h"
 
 #define PROJECT "sf-pwgen"
-#define VERSION "1.2"
+#define VERSION "1.3"
 
 #define PASS_MIN_LENGTH 8
 #define PASS_MAX_LENGTH 31
