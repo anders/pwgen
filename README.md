@@ -27,8 +27,3 @@ and above.
 
 To use it simply include `SFPasswordAssistant.h` in your project
 and link to `SecurityFoundation.framework`.
-
-## Contributing
-This project is developed at [Bitbucket](https://bitbucket.org/anders/sf-pwgen/)
-and while there is a GitHub mirror I can't accept pull requests / git changes.
-Patches are fine however.
