@@ -1,4 +1,6 @@
 # sf-pwgen
+[![Build Status](https://travis-ci.org/anders/pwgen.svg?branch=master)](https://travis-ci.org/anders/pwgen)
+
 `sf-pwgen` is a command line tool which generates passwords using the
 SecurityFoundation framework in OS X. It runs on Mountain Lion and later.
 
