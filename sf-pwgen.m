@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
   NSString *language = @"en";
 
   const struct option longopts[] = {
-    { "algorithm", optional_argument, NULL, 'a' },
+    { "algorithm", required_argument, NULL, 'a' },
     { "count", required_argument, NULL, 'c' },
     { "length", required_argument, NULL, 'l' },
     { "language", required_argument, NULL, 'L' },
