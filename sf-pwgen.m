@@ -1,5 +1,5 @@
 /*
- * sf-pwgen.m -- OS X command line password generator
+ * sf-pwgen.m -- macOS command line password generator
  * Copyright (c) 2012-2014 Anders Bergh <anders1@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied
@@ -32,7 +32,7 @@
 #import "SFPasswordAssistant.h"
 
 #define PROJECT "sf-pwgen"
-#define VERSION "1.3"
+#define VERSION "1.4"
 
 #define PASS_MIN_LENGTH 8
 #define PASS_MAX_LENGTH 31
@@ -49,7 +49,7 @@ static void usage(const char *argv0) {
   NSArray *languages =
       [policy[@"Languages-Evaluate"] componentsSeparatedByString:@","];
 
-  printf(PROJECT " " VERSION ": OS X password generator\n");
+  printf(PROJECT " " VERSION ": macOS password generator\n");
   printf("Anders Bergh <anders1@gmail.com>\n\n");
 
   printf("usage: %s [options]\n\n", argv0);
