@@ -34,8 +34,9 @@
 #define PROJECT "sf-pwgen"
 #define VERSION "1.4"
 
+// The length limit used to be the same as in Keychain Access (min 8, max 31).
 #define PASS_MIN_LENGTH 8
-#define PASS_MAX_LENGTH 31
+#define PASS_MAX_LENGTH 128
 #define PASS_DEFAULT_LENGTH 12
 #define PASS_DEFAULT_COUNT 5
 
