@@ -7,3 +7,4 @@ sf-pwgen
 xcuserdata
 build
 *.xcworkspace
+*.dSYM
