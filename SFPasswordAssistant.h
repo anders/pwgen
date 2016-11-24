@@ -19,6 +19,7 @@ typedef enum {
   kSFPWAAlgorithmNumbers = 4
 } SFPWAAlgorithm;
 
+// bool SFPWAStdStringInDictionary(SFPWAContextRef ctx, std::string s);
 bool SFPWACStringInDictionary(SFPWAContextRef ctx, const char *string);
 SFPWAContextRef SFPWAContextCreate(void);
 SFPWAContextRef SFPWAContextCreateWithDefaults(void);
@@ -47,7 +48,7 @@ CFMutableArrayRef SFPWAPasswordSuggest(SFPWAContextRef ctx,
                                        CFDictionaryRef policy, int length,
                                        int unknown, int count,
                                        SFPWAAlgorithm algorithm);
-CFDictionaryRef SFPWAPolicyCopyDefault(void);
+CFPropertyListRef SFPWAPolicyCopyDefault(void);
 CFPropertyListRef SFPWAPolicyCopyFromFile(const char *path);
 CFArrayRef SFPWAPolicyLanguages(CFDictionaryRef policy);
 void SFPWAPolicyParse(SFPWAContextRef ctx, CFDictionaryRef policy);
