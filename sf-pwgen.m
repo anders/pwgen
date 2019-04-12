@@ -79,6 +79,7 @@ int main(int argc, char *argv[]) {
   int length = PASS_DEFAULT_LENGTH;
   SFPWAAlgorithm algorithm = kSFPWAAlgorithmMemorable;
   NSString *language = @"en";
+  bool warn_about_length = false;
 
   const struct option longopts[] = {
     { "algorithm", required_argument, NULL, 'a' },
@@ -123,6 +124,8 @@ int main(int argc, char *argv[]) {
 
       case 'l':
         length = atoi(optarg);
+        // the user requested a specific length; warn if it's not fultilled.
+        warn_about_length = true;
         break;
 
       case 'L':
@@ -177,6 +180,12 @@ int main(int argc, char *argv[]) {
     assert(suggestions != NULL);
 
     for (NSString *s in suggestions) {
+      if (warn_about_length && [s length] < (unsigned long) length) {
+        fprintf(stderr,
+                "warning: at least one password generated is shorter than "
+                "the requested length\n");
+        warn_about_length = false;
+      }
       printf("%s\n", [s UTF8String]);
     }
 
