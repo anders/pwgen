@@ -10,6 +10,7 @@
 		9A07D7B416E1BD380042A1BE /* sf-pwgen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A07D7B316E1BD380042A1BE /* sf-pwgen.m */; };
 		9A07D7B616E1BD870042A1BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A07D7B516E1BD870042A1BE /* Foundation.framework */; };
 		9A850B2216E1B78F001E2417 /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A850B2116E1B78F001E2417 /* SecurityFoundation.framework */; };
+		9AD5B5A02261926000D93A1F /* sf_pwgen_test.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5B59F2261926000D93A1F /* sf_pwgen_test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +31,9 @@
 		9A850B1016E1B750001E2417 /* sf-pwgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "sf-pwgen"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A850B2116E1B78F001E2417 /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = System/Library/Frameworks/SecurityFoundation.framework; sourceTree = SDKROOT; };
 		9A92F282182BDCD900CA808B /* SFPasswordAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPasswordAssistant.h; sourceTree = SOURCE_ROOT; };
+		9AD5B59D2261926000D93A1F /* sf-pwgen-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sf-pwgen-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AD5B59F2261926000D93A1F /* sf_pwgen_test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sf_pwgen_test.m; sourceTree = "<group>"; };
+		9AD5B5A12261926000D93A1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9AD5B59A2261926000D93A1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -49,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				9A850B1516E1B750001E2417 /* sf-pwgen */,
+				9AD5B59E2261926000D93A1F /* sf-pwgen-test */,
 				9A850B1216E1B750001E2417 /* Frameworks */,
 				9A850B1116E1B750001E2417 /* Products */,
 			);
@@ -59,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				9A850B1016E1B750001E2417 /* sf-pwgen */,
+				9AD5B59D2261926000D93A1F /* sf-pwgen-test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +94,15 @@
 			path = "sf-pwgen";
 			sourceTree = "<group>";
 		};
+		9AD5B59E2261926000D93A1F /* sf-pwgen-test */ = {
+			isa = PBXGroup;
+			children = (
+				9AD5B59F2261926000D93A1F /* sf_pwgen_test.m */,
+				9AD5B5A12261926000D93A1F /* Info.plist */,
+			);
+			path = "sf-pwgen-test";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,6 +123,23 @@
 			productReference = 9A850B1016E1B750001E2417 /* sf-pwgen */;
 			productType = "com.apple.product-type.tool";
 		};
+		9AD5B59C2261926000D93A1F /* sf-pwgen-test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AD5B5A42261926000D93A1F /* Build configuration list for PBXNativeTarget "sf-pwgen-test" */;
+			buildPhases = (
+				9AD5B5992261926000D93A1F /* Sources */,
+				9AD5B59A2261926000D93A1F /* Frameworks */,
+				9AD5B59B2261926000D93A1F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sf-pwgen-test";
+			productName = "sf-pwgen-test";
+			productReference = 9AD5B59D2261926000D93A1F /* sf-pwgen-test.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -109,12 +148,22 @@
 			attributes = {
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Anders Bergh";
+				TargetAttributes = {
+					9A850B0F16E1B750001E2417 = {
+						ProvisioningStyle = Automatic;
+					};
+					9AD5B59C2261926000D93A1F = {
+						CreatedOnToolsVersion = 10.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 9A850B0B16E1B750001E2417 /* Build configuration list for PBXProject "sf-pwgen" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 9A850B0716E1B750001E2417;
@@ -123,9 +172,20 @@
 			projectRoot = "";
 			targets = (
 				9A850B0F16E1B750001E2417 /* sf-pwgen */,
+				9AD5B59C2261926000D93A1F /* sf-pwgen-test */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9AD5B59B2261926000D93A1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9A850B0C16E1B750001E2417 /* Sources */ = {
@@ -133,6 +193,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A07D7B416E1BD380042A1BE /* sf-pwgen.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AD5B5992261926000D93A1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AD5B5A02261926000D93A1F /* sf_pwgen_test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +267,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.5;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -209,8 +278,102 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.5;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9AD5B5A22261926000D93A1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "sf-pwgen-test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "se.fgsfd.sf-pwgen-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9AD5B5A32261926000D93A1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "sf-pwgen-test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "se.fgsfd.sf-pwgen-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -232,6 +395,15 @@
 			buildConfigurations = (
 				9A850B1D16E1B750001E2417 /* Debug */,
 				9A850B1E16E1B750001E2417 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9AD5B5A42261926000D93A1F /* Build configuration list for PBXNativeTarget "sf-pwgen-test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AD5B5A22261926000D93A1F /* Debug */,
+				9AD5B5A32261926000D93A1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

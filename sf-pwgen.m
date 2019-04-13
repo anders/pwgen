@@ -1,6 +1,6 @@
 /*
  * sf-pwgen.m -- macOS command line password generator
- * Copyright (c) 2012-2014 Anders Bergh <anders1@gmail.com>
+ * Copyright (c) 2012-2019 Anders Bergh <anders1@gmail.com>
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -32,7 +32,7 @@
 #import "SFPasswordAssistant.h"
 
 #define PROJECT "sf-pwgen"
-#define VERSION "1.4"
+#define VERSION "1.5"
 
 // The length limit used to be the same as in Keychain Access (min 8, max 31).
 #define PASS_MIN_LENGTH 8
@@ -124,7 +124,7 @@ int main(int argc, char *argv[]) {
 
       case 'l':
         length = atoi(optarg);
-        // the user requested a specific length; warn if it's not fultilled.
+        // the user requested a specific length; warn if it's not fulfilled.
         warn_about_length = true;
         break;
 

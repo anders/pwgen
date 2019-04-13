@@ -1,5 +1,12 @@
 # sf-pwgen version history
 
+## 1.5 (2019-04-13)
+ * Warn if passwords are shorter than requested. Thanks to @dancek for implementing this.
+ * Updated Xcode project to fix Travis CI (had to add a unit test).
+
+## 1.4 (2016-10-31)
+ * Fix crash bug on Sierra.
+
 ## 1.3 (2014-04-17)
  * System requirements are now Mountain Lion (10.8) and later.
  * Show default password length and count in help output.
